@@ -122,6 +122,9 @@ class JobScheduler(val ssc: StreamingContext) extends Logging {
     eventLoop.post(ErrorReported(msg, e))
   }
 
+  def getJobSets(): ConcurrentHashMap[Time, JobSet] =
+    jobSets
+
   private def processEvent(event: JobSchedulerEvent) {
     try {
       event match {

@@ -582,6 +582,9 @@ class StreamingContext private[streaming] (
     // The state should always be Stopped after calling `stop()`, even if we haven't started yet:
     state = Stopped
   }
+
+  def getScheduler(): JobScheduler =
+    scheduler
 }
 
 /**
